@@ -23,10 +23,15 @@
             %table.table.table-striped.table-bordered
               %thead
                 %tr
+                  %th Name
                   %th Email
               %tbody
                 - @dog.users.each do |user|
                   %tr
+                    - if user.first_name.present?
+                      %td= user.name
+                    -else
+                      %td
                     %td= user.email
             = simple_form_for :user, method: :post, url: add_owner_dog_path(@dog), html: {class: 'form-inline'} do |f|
               .form-group

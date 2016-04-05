@@ -16,4 +16,5 @@ class FeedLog < ActiveRecord::Base
   belongs_to :dog
   belongs_to :user
   enum log_type: [:feed, :walk]
+  validates :time, :dog_id, :user_id, presence: true
 end

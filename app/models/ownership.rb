@@ -14,4 +14,5 @@ class Ownership < ActiveRecord::Base
   belongs_to :dog
 
   validates_uniqueness_of :dog_id, scope: :user_id
+  validates :dog_id, :user_id, presence: true
 end

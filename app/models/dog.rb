@@ -21,6 +21,7 @@ class Dog < ActiveRecord::Base
   validates_attachment_content_type :picture, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   validates_with AttachmentSizeValidator, attributes: :picture, less_than: 3.megabytes
   enum sex: [:male, :female]
+  validates :name, presence: true
 
   def feed_logs_today
     FeedLog.feed.where('time >= ? and dog_id = ?', DateTime.now.beginning_of_day, self.id)

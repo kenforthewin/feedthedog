@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
   has_many :dogs, through: :ownerships
 
   def name
-    email
+    if first_name
+      first_name
+    else
+      email
+    end
   end
 end
