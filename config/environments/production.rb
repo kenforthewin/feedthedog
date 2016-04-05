@@ -95,6 +95,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  Aws.config[:region] = 'us-west-2'
+
   config.paperclip_defaults = {
       :storage => :s3,
       :s3_credentials => {
@@ -103,7 +105,5 @@ Rails.application.configure do
           :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
       }
   }
-
-  Aws.config[:region] = 'us-west-2'
 
 end
