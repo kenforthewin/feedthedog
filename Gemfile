@@ -67,6 +67,7 @@ gem 'faker'
 gem 'devise_invitable', '~> 1.3.4'
 gem 'pg'
 gem "letter_opener", :group => :development
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'rspec-rails'
