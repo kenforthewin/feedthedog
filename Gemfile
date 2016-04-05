@@ -51,7 +51,7 @@ gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'jquery-ui-rails'
-gem "paperclip", "~> 3.0.0"
+gem "paperclip", "~> 5.0.0.beta1"
 gem 'aws-sdk'
 gem 'annotate', '>=2.6.0'
 gem 'authority'
