@@ -1,3 +1,5 @@
 = simple_form_for @dog do |f|
   = f.input :name
+  = f.input :sex, collection: ['male', 'female'], default: 'male'
+  = f.input :picture, as: :file
   = f.button :submit

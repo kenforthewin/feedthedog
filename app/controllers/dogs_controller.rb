@@ -9,7 +9,7 @@
 #
 
 class DogsController < ApplicationController
-  before_action :set_dog_and_check_owner!, only: [:show, :edit, :update, :feed, :add_owner]
+  before_action :set_dog_and_check_owner!, only: [:show, :edit, :update, :feed, :add_owner, :walk]
 
   def index
     @dogs = current_user.dogs
@@ -43,6 +43,14 @@ class DogsController < ApplicationController
     redirect_to @feed_log.dog
   end
 
+  def walk
+    @feed_log = FeedLog.new(dog_id: @dog.id, log_type: 'walk')
+    @feed_log.user = current_user
+    @feed_log.time = DateTime.now
+    @feed_log.save!
+    redirect_to @feed_log.dog
+  end
+
   def create
     @dog = Dog.create(dog_params)
 
@@ -57,7 +65,7 @@ class DogsController < ApplicationController
   private
 
     def dog_params
-      params.require(:dog).permit(:name)
+      params.require(:dog).permit(:name, :sex, :picture)
     end
 
     def set_dog_and_check_owner!

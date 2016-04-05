@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'dogs#index'
   resources :dogs do
     post :feed, on: :member
+    post :walk, on: :member
     post :add_owner, on: :member
   end
   resources :feed_logs

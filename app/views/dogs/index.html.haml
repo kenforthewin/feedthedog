@@ -1,9 +1,18 @@
 - @dogs.each do |dog|
-  - feed_log = FeedLog.new
-  = simple_form_for feed_log do |f|
-    .row
-      .col-md-6.col-md-offset-3.col-sm-12.col-xs-12
-        = f.input :dog_id, as: :hidden, input_html: {value: dog.id}
-        = f.button :submit, "Feed #{dog.name} (#{dog.logs_today.count})", class: 'btn btn-lg btn-primary btn-block'
+  .row
+    .col-md-6.col-md-offset-3.col-sm-12.col-xs-12
+      .well.well-lg
+        .row
+          .col-md-3
+            .text-center
+              = link_to dog.name, dog, style: 'font-size:200%'
+            .text-center
+              = image_tag dog.picture.url(:thumb)
+            %br/
+          .col-md-9
+            = link_to "Feed #{dog.name} #{dog.pronoun} #{(dog.feed_logs_today.count + 1).ordinalize} meal", feed_dog_path(dog), method: :post, class: 'btn btn-primary btn-lg btn-block'
+            %br/
+            = link_to "Take #{dog.name} on #{dog.pronoun} #{(dog.walk_logs_today.count + 1).ordinalize} walk", walk_dog_path(dog), method: :post, class: 'btn btn-success btn-lg btn-block'
+
     %br/
     %br/

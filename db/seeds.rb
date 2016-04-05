@@ -13,4 +13,4 @@ def create_dog(name, user)
 end
 
 admin = create_admin if Rails.env.development?
-create_dog('Hercules', admin)
+create_dog('Hercules', admin) if Rails.env.development?

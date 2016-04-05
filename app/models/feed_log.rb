@@ -9,9 +9,11 @@
 #  note       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  log_type   :integer          default(0)
 #
 
 class FeedLog < ActiveRecord::Base
   belongs_to :dog
   belongs_to :user
+  enum log_type: [:feed, :walk]
 end
