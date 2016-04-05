@@ -32,6 +32,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'puma'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -64,6 +66,8 @@ gem 'premailer-rails'
 gem 'faker'
 gem 'devise_invitable', '~> 1.3.4'
 gem 'pg'
+gem "letter_opener", :group => :development
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'

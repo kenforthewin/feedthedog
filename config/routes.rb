@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root 'dogs#index'
+  resources :dogs do
+    post :feed, on: :member
+    post :add_owner, on: :member
+  end
+  resources :feed_logs
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

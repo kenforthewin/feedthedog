@@ -1,0 +1,9 @@
+- @dogs.each do |dog|
+  - feed_log = FeedLog.new
+  = simple_form_for feed_log do |f|
+    .row
+      .col-md-6.col-md-offset-3.col-sm-12.col-xs-12
+        = f.input :dog_id, as: :hidden, input_html: {value: dog.id}
+        = f.button :submit, "Feed #{dog.name} (#{dog.logs_today.count})", class: 'btn btn-lg btn-primary btn-block'
+    %br/
+    %br/
