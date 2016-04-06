@@ -1,1 +1,3 @@
-[FEED THE DOG](https://feedthedog.herokuapp.com/)
+== FEED THE DOG
+
+https://feedthedog.herokuapp.com/
