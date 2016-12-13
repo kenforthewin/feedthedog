@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     post :add_owner, on: :member
   end
   resources :feed_logs
+
+  get 'zeus_guide', to: 'static_pages#zeus'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
